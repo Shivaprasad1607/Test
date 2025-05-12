@@ -3,6 +3,7 @@
    hosts: local 
    become: yes 
    tasks: 
-   - name: Copy the artifact to the deployment directory 10. copy: 
-   src: "/var/lib/jenkins/workspace/Test/target/HelloMaven-1.0-SNAPSHOT.jar"
-   dest: "/opt/deployment/HelloMaven.jar"
+   - name: Copy the artifact to the deployment directory 10. 
+     copy: 
+     src: "/var/lib/jenkins/workspace/Test/target/HelloMaven-1.0-SNAPSHOT.jar"
+     dest: "/opt/deployment/HelloMaven.jar"
