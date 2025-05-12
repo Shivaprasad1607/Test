@@ -1,9 +1,13 @@
 ---
- - name: Deploy Maven Artifact 
-   hosts: local 
-   become: yes 
-   tasks: 
-   - name: Copy the artifact to the deployment directory 10. 
-     copy: 
-     src: "/var/lib/jenkins/workspace/Test/target/HelloMaven-1.0-SNAPSHOT.jar"
-     dest: "/opt/deployment/HelloMaven.jar"
+- name: Basic Server Setup
+  hosts: local
+  become: yes # Use privilege escalation (sudo)
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install curl
+      apt:
+        name: curl
+        state: present
